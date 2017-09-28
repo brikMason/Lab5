@@ -15,20 +15,22 @@ public class Palindrome {
 	public static void main(String[] args) {
 
 		Scanner input = new Scanner(System.in);
-		System.out.print("Enter a word or a number: ");
+		System.out.print("Enter a word, sentence, or number: ");
 		String pal = input.nextLine();
 		input.close();
 		if (isaPalindrome(pal))
-			System.out.println(pal + " is a palindrome.");
+			System.out.println("'" + pal +  "'" + " is a palindrome.");
 		else
-			System.out.println(pal + " is not a palindrome.");
+			System.out.println("'" + pal +  "'"  + " is not a palindrome.");
 
 	}
 
 	public static boolean isaPalindrome(String expr) {
 
-		// Adds ability to test names. Or any capital letter really...
-		expr = expr.toLowerCase();
+		// Adds ability to test names and ignores punctuation.
+		expr = expr.replaceAll("[^a-zA-Z ]", "").toLowerCase();
+		// Adds ability to test sentences. Removes the spaces...
+		expr = expr.replaceAll("\\s+","");
 
 		// Considering any string length 0 or 1 to be a palindrome.
 		if (expr.length() == 0 || expr.length() == 1)
