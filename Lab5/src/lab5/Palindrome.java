@@ -27,7 +27,7 @@ public class Palindrome {
 
 	public static boolean isaPalindrome(String expr) {
 
-		// Adds ability to test names and ignores punctuation.
+		// Ignores punctuation and sets everything to lower case.
 		expr = expr.replaceAll("[^a-zA-Z ]", "").toLowerCase();
 		// Adds ability to test sentences. Removes the spaces...
 		expr = expr.replaceAll("\\s+","");
